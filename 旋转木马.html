@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>旋转木马</title>
+		<link rel="stylesheet" type="text/css" href="css/rotate.css"/>
+	</head>
+	<body>
+		<div class="rotateBox"></div>
+		
+	</body>
+	<script type="text/javascript" src="js/rotate.js"></script>
+	<script type="text/javascript">
+		var roBox = document.querySelector(".rotateBox");
+		var data = ['http://192.168.43.124:8888/img/1.jpg','http://192.168.43.124:8888/img/2.jpg','http://192.168.43.124:8888/img/3.jpg','http://192.168.43.124:8888/img/4.jpg','http://192.168.43.124:8888/img/5.jpg'];
+		var dataJson = [
+		  {
+		  	width:400,
+		  	top:40,
+		  	left:325,
+		  	opacity:0.4,
+		  	zIndex:2
+		  },
+		  {
+		  	width:600,
+		  	top:120,
+		  	left:50,
+		  	opacity:0.6,
+		  	zIndex:3
+		  },{
+		  	width:800,
+		  	top:200,
+		  	left:350,
+		  	opacity:1,
+		  	zIndex:4
+		  },
+		  {
+		  	width:600,
+		  	top:120,
+		  	left:850,
+		  	opacity:0.6,
+		  	zIndex:3
+		  },
+		  {
+		  	width:400,
+		  	top:40,
+		  	left:775,
+		  	opacity:0.4,
+		  	zIndex:2
+		  }
+		];
+		rotateFrame(roBox,data,dataJson);	
+		
+		
+		
+	</script>
+</html>

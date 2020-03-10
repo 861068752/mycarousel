@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义时钟</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.clock{
+				width: 600px;
+				height: 600px;
+				margin: 20px auto;
+				position: relative;
+				background: url(img/clock.jpg) no-repeat;
+			}
+			.hour,.minute,.second{
+				 width: 30px;
+                 height: 600px;
+                 position: absolute;
+                 top: 0;
+                 left: 50%;
+                 margin-left: -15px;
+			}
+			.hour{
+				background: url(img/hour.png) no-repeat;
+			}
+			.minute{
+				background: url(img/minute.png) no-repeat;
+			}
+			.second{
+				background: url(img/second.png) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="clock">
+			<div class="hour"></div>
+			<div class="minute"></div>
+			<div class="second"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var hBtn = document.querySelector(".hour");
+		var mBtn = document.querySelector(".minute");
+		var sBtn = document.querySelector(".second");
+		
+		function clock(){
+			var time = new Date();
+			var h = time.getHours();
+			var m = time.getMinutes();
+			var s = time.getSeconds();
+			hBtn.style.transform = 'rotate('+(h*30+m/60*30)+'deg)';
+			mBtn.style.transform = 'rotate('+(m*6+s/60*6)+'deg)';
+			sBtn.style.transform = 'rotate('+(s*6)+'deg)';
+			
+		}
+		setInterval(function(){
+				clock();
+			},1000)
+		
+		
+	</script>
+</html>

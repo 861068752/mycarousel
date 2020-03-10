@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>缓冲运动</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				background: mediumpurple;
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*transition: all 0.5s;*/
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		
+		box.onmouseover = function(){
+			
+			//box.style.width = "600px";
+			animation(box,600);
+		}
+		box.onmouseout = function(){
+			
+			//box.style.width = "200px";
+			animation(box,200);
+		}
+		//缓冲动画
+		function animation(obj,target){
+			clearInterval(obj.timer);
+			obj.timer = setInterval(function(){
+				if(obj.offsetWidth == target){
+					clearInterval(obj.timer);
+					return;
+				}
+				var s = (target - obj.offsetWidth)/10;
+				s = s>0?Math.ceil(s):Math.floor(s);
+				obj.style.width = obj.offsetWidth + s + "px";
+				
+			},20)
+		}
+		
+	</script>
+</html>

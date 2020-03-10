@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标移动</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background: blueviolet;
+				position: absolute;
+				top: 0;
+				left: 0;
+				opacity: 0.4;
+			}
+			.down{
+				opacity: 1 !important;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		
+		box.onmousedown = function(){
+			box.down = true;
+			box.classList.add("down");
+		}
+		box.onmouseup = function(){
+			box.down = false;
+			box.classList.remove("down");
+		}
+		window.onmousemove = function(e){
+			var x = e.pageX - box.offsetWidth/2;
+			var y = e.pageY - box.offsetHeight/2;
+			
+			if(box.down){
+				box.style.left = x + "px";
+				box.style.top = y + "px";
+			}
+		}
+	</script>
+</html>

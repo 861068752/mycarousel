@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>特效四大家族之一scroll</title>
+		<style type="text/css">
+			body,html{
+				height: 300%;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+			}
+			
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		
+		window.onmousedown = function(){
+			var wst = window.pageYOffset;
+			console.log(wst);
+			var wws = document.body.scrollTop;
+			console.log(wws);
+			var www = document.documentElement.scrollTop
+			console.log(www);
+		}
+		
+		
+//		var target = 0;
+//		window.onmousedown = function(){
+//			target  = target + 100;
+//			window.scrollTo(0,scroll().top+target);
+//			var wsT = window.pageYOffset;
+//			console.log(scroll().top);
+//			console.log(wsT);
+//			
+//		}
+//		
+//		
+//		
+//		function scroll(){
+//			if(window.pageXOffset){
+//				return{
+//					left:window.pageXOffset,
+//					top:window.pageYOffset
+//				}
+//			}else if(document.compatMode == "backCompat"){
+//				return{
+//					left:document.body.scrollLeft,
+//					top:document.body.scrollTop
+//				}
+//			}else{
+//				return{
+//					left:document.documentElement.scrollLeft,
+//					top:document.documentElement.scrollTop
+//				}
+//			}
+//		}
+	</script>
+</html>

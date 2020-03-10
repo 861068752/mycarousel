@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>冒泡事件</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.box{
+				width: 200px;
+				height: 600px;
+				background: darkgray;
+			}
+			.nav{
+				width: 100px;
+				height: 400px;
+				background: yellowgreen;
+			}
+			.nav li{
+				width: 80px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				cursor: pointer;
+				margin-left:10px;
+				margin-top: 10px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="nav">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		var nav = document.querySelector(".nav");
+		var lis = nav.children;
+		
+		box.onclick = function(e){
+			console.log("box被触发！");
+		}
+		nav.onclick = function(e){
+			e.stopPropagation();
+			console.log("nav被触发！");
+		}
+		
+		for(var i=0;i<lis.length;i++){
+			lis[i].index = i;
+			lis[i].onclick = function(e){
+				
+				e.cancelBubble = true;
+				console.log(e);
+				console.log(this.index);
+			}
+		}
+	</script>
+</html>

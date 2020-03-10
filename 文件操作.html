@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>文件操作</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 1024px;
+				height: 600px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				margin: 50px auto;
+				border: 2px dashed orange;
+				position: relative;
+			}
+			#lb{
+				display: block;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font-size: 108px;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+		<form>
+			<label for="wj" id="lb">+</label>
+			<input type="file" name="wj" id="wj"/ hidden="">
+			
+		</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var lb = document.querySelector("#lb");
+		var wj = document.querySelector('#wj');
+		var box = document.querySelector('.box');
+		lb.style.marginLeft = -lb.offsetWidth/2 + "px";
+		lb.style.marginTop = -lb.offsetHeight/2 + "px";
+		
+		wj.addEventListener('change',function(e){
+			e.preventDefault();
+			var fi = wj.files[0];
+			var fr = new FileReader();
+			fr.readAsDataURL(fi);
+			fr.onloadend = function(){
+				box.style.background = 'url('+fr.result+')';
+			}
+		})
+		box.ondragover = function(e){
+			e.preventDefault();
+			
+		}
+		box.ondrop = function(e){
+			e.preventDefault();
+			var fi = e.dataTransfer.files[0];
+			var fr = new FileReader();
+			fr.readAsDataURL(fi);
+			fr.onloadend = function(){
+				box.style.background = 'url('+fr.result+')';
+			}
+			
+		}
+		
+	</script>
+</html>

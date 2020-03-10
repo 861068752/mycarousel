@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>本地存储</title>
+		<style type="text/css">
+			.show{
+				width: 200px;
+				height: 100px;
+				background: darkgray;
+				font-size: 22px;
+				color: white;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="show"></div>
+		<form action="" method="post">
+			<input type="text" name="text" id="text" value="" placeholder="请输入姓名："/>
+			<input type="password" name="pass" id="pass" value="" placeholder="请输入密码："/>
+			
+		</form>
+	</body>
+	<script type="text/javascript">
+		var show = document.querySelector(".show");
+		var t = document.querySelector("#text");
+		var p = document.querySelector("#pass");
+		var username;
+		var userpass;
+		
+		t.onblur = function(e){
+			e.stopPropagation();
+			var name = this.value;
+			window.localStorage.setItem('userName',name);
+		}
+		p.onblur = function(e){
+			e.stopPropagation();
+			var pass = this.value;
+			window.localStorage.setItem('userPass',pass);
+		}
+		
+		show.onclick = function(e){
+			e.stopPropagation();
+			username = window.localStorage.getItem('userName');
+			userpass = window.localStorage.getItem('userPass');
+			show.innerHTML = username+userpass;
+		}
+		
+	</script>
+</html>

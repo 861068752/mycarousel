@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性获取与绑定</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background: blueviolet;
+			}
+			.bg{
+				width: 100px;
+				height: 100px;
+				background: red !important;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		var bc = box.getAttribute('class');
+		console.log(bc);
+		box.onclick = function(){
+			box.setAttribute('class','bg');
+		}
+		box.dataset['userName'] = '彭海锋';
+		console.log(box);
+		var name = box.getAttribute('data-user-name');
+		console.log(name);
+		box.setAttribute('data-user-name','秦时明月');
+		
+		var name = box.getAttribute('data-user-name');
+		console.log(name);
+	</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>特效四大家族</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				top: 0;
+				left:0px;
+				text-align: center;
+				line-height: 100px;
+			}
+			.box{
+				background: red;
+			}
+			.box2{
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+	
+		<div class="box">A</div>
+		<div class="box2">B</div>
+		
+		
+	</body>
+	<script type="text/javascript">
+		var b1 = document.querySelector(".box");
+		var b2 = document.querySelector(".box2");
+		
+		window.onmousedown = function(e){
+			var ev = e || window.event;
+			
+			var x = ev.pageX;
+			var y = ev.pageY;
+			console.log("x"+x+";"+"y"+y);
+			
+			var x1 = ev.clientX;
+			var y1 = ev.clientY;
+			console.log("x"+x1+";"+"y"+y1);
+			
+			var wy = window.innerHeight;
+			var wx = window.innerWidth;
+			
+			console.log("wx"+wx+";"+"wy"+wy);
+			
+			var bx = b1.offsetWidth;
+			var by = b1.offsetHeight;
+			console.log("bx"+bx+";"+"by"+by);
+			
+			var bl = b1.offsetLeft;
+			var bt = b1.offsetTop;
+			console.log("bl"+bl+";"+"bt"+bt);
+			
+		}
+		
+		
+		
+	</script>
+</html>

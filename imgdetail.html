@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>imgdetail</title>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+	    var data = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg'];
+		var imgid = 0;
+		window.onload = function(){
+			geturl();
+			imgDetail(box,data);
+			
+		}
+		function imgDetail(obj,data){
+			
+			var html = showimg(data);
+			obj.innerHTML = html;
+			
+		}
+		function showimg(data){
+			return '<img src="'+data[imgid]+'"/>';
+		}
+		//获取url的值
+		function geturl(){
+			var url = location.search;
+			console.log(url);
+			var thequest = new Object();
+			if(url.indexOf('?') != '-1'){
+				var su = url.substr(1);
+				console.log(su);
+				var sp = su.split('&');
+				console.log(sp);
+				
+				for(var i=0;i<=sp.length-1;i++){
+					thequest[sp[i].split('=')[0]] = decodeURI(sp[i].split('=')[1]);
+				}
+				imgid = thequest.imgid;
+				console.log(imgid);
+			}
+			
+			
+		}
+	</script>
+</html>

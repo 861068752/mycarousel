@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>特效四大家族之一client</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background:peru;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+				border: 2px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		
+		window.onmousedown = function(e){
+			var ev = e || window.event;
+			var x = ev.clientX;
+			var y = ev.clientY;
+			console.log("x:"+x+";"+"y:"+y);
+			
+			var bw = box.clientWidth;
+			var bh = box.clientHeight;
+			console.log("bw:"+bw+";"+"bh:"+bh);
+			
+			var ww = document.body.clientWidth;
+			var wh = document.body.clientHeight;
+			console.log("ww:"+ww+";"+"wh:"+wh);
+			
+			var bT = box.clientTop;
+			var bL = box.clientLeft;
+			console.log("bT:"+bT+";"+"bL:"+bL);
+			
+		}
+		
+		
+	</script>
+</html>

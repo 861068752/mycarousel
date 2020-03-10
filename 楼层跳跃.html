@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>楼层跳跃</title>
+		<link rel="stylesheet" type="text/css" href="css/jump.css"/>
+	</head>
+	<body>
+		<div class="jumpBox"></div>
+	</body>
+	<script type="text/javascript" src="js/jump.js"></script>
+	<script type="text/javascript">
+		
+		var box = document.querySelector('.jumpBox');
+		var data = [
+		     {
+		     	txt:"蔬菜",
+		     	bg:"red"
+		     },
+		     {
+		     	txt:"水果",
+		     	bg:"orange"
+		     },
+		     {
+		     	txt:"零食",
+		     	bg:"yellow"
+		     },
+		     {
+		     	txt:"肉类",
+		     	bg:"green"
+		     },
+		     {
+		     	txt:"酒类",
+		     	bg:"blue"
+		     },
+		     {
+		     	txt:"小米",
+		     	bg:"cyan"
+		     },
+		     {
+		     	txt:"手机",
+		     	bg:"purple"
+		     }
+		]
+		jumpFrame(box,data);
+		
+	</script>
+</html>

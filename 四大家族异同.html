@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>四大家族异同</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body,html{
+				height: 300%;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				background: blueviolet;
+				position: absolute;
+				top: 50px;
+				left: 50px;
+				border: 2px solid black;
+				overflow: scroll;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">aaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+	</body>
+	<script type="text/javascript">
+		var box = document.querySelector(".box");
+		
+		window.onmousedown = function(e){
+			var ev = e || window.event;
+			//盒子(调用)
+			//offset,scroll,client(宽高)； 
+			//offset(盒子宽高：width+padding+border)
+			var ow = box.offsetWidth;
+			var oh = box.offsetHeight;
+			console.log("offset:"+ow+":"+oh);
+			console.log("........................")
+			//scroll(盒子宽高：width+padding(盒子内容没超出盒子范围))||(盒子内容超出盒子范围：内容宽高包含超出部分不包含滚动条)
+			var sw = box.scrollWidth;
+			var sh = box.scrollHeight;
+			console.log("scroll:"+sw+":"+sh);
+			console.log("........................")
+			//client(盒子宽高：width+padding(盒子内容没超出盒子范围))||(盒子内容超出盒子范围：内容宽高不包含超出部分不包含滚动条)
+			var cw = box.clientWidth;
+			var ch = box.clientHeight;
+			console.log("client:"+cw+":"+ch);
+			
+			//offset,scroll,client(偏移：top,left)； 
+			//offset(盒子位置相对于定位父级节点的偏移量)
+			var oL = box.offsetLeft;
+			var oT = box.offsetTop;
+			console.log("offset:"+oL+":"+oT);
+			console.log("........................")
+			//scroll(被隐藏的内容宽高)
+			var sL = box.scrollLeft;
+			var sT = box.scrollTop;
+			console.log("scroll:"+sL+":"+sT);
+			console.log("........................")
+			//client(盒子border的宽高)
+			var cL = box.clientLeft;
+			var cT = box.clientTop;
+			console.log("client:"+cL+":"+cT);
+			
+			//body，html,window(调用)(浏览器内容被隐藏的部分)
+			//offset(pageXOffset||pageYOfsset)
+			console.log("!!!!!!!!!!!!!!!!!!!!!!!!!");
+			var oT = window.pageYOffset;
+			var oL = window.pageXOffset;
+			console.log("offset:"+oL+":"+oT);
+			//scroll(document.documentElement.scrollLeft||document.documentElement.scrollTop)
+			console.log("!!!!!!!!!!!!!!!!!!!!!!!!!");
+			var sL = document.documentElement.scrollLeft;
+			var sT = document.documentElement.scrollTop;
+			console.log("scroll:"+sL+":"+sT);
+			//client(对body，html无效)
+			console.log("!!!!!!!!!!!!!!!!!!!!!!!!!");
+			var cL = document.documentElement.clientLeft;
+			var cT = document.documentElement.clientTop;
+			console.log("client:"+cL+":"+cT);
+			
+			//获取浏览器宽高
+			console.log("**************************");
+			var sw = window.innerWidth;
+			console.log("innerWidth:"+sw);
+			console.log("**************************");
+			var sw = document.documentElement.offsetWidth;
+			console.log("body.width:"+sw);
+			console.log("**************************");
+			var sw = window.screen.width;
+			console.log("screen:"+sw);
+		}
+		
+		
+		
+	</script>
+</html>

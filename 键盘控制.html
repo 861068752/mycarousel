@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>键盘控制</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				background: blueviolet;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		 var box = document.querySelector(".box");
+		 boxMove(box);
+		function boxMove(obj){
+			
+			window.onkeydown = function(e){
+				if(e.keyCode == "37"){
+					obj.style.left = obj.offsetLeft - 10 + "px";
+				}else if(e.keyCode == "38"){
+					obj.style.top = obj.offsetTop - 10 + "px";
+				}else if(e.keyCode == "39"){
+					obj.style.left = obj.offsetLeft + 10 + "px";
+				}else if(e.keyCode == "40"){
+					obj.style.top = obj.offsetTop + 10 + "px";
+				}
+				
+			}
+			
+			
+			
+		}
+		
+		
+	</script>
+</html>

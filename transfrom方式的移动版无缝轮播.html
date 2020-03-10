@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>transfrom方式的移动版无缝轮播</title>
+		<link rel="stylesheet" type="text/css" href="css/transform.css"/>
+	</head>
+	<body>
+		<div class="imgFrame"></div>
+		
+	</body>
+	<script type="text/javascript" src="js/transform.js"></script>
+	<script type="text/javascript" src="js/transformCarousel.js"></script>
+	<script type="text/javascript">
+		var iBox = document.querySelector(".imgFrame");
+		var imgData = ['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg','img/5.jpg'];
+		
+		tCarouselFrame(iBox,imgData);
+		
+	</script>
+</html>

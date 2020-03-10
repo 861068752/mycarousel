@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标跟随</title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				background: mediumpurple;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all 0.5s;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		
+		var box = document.querySelector(".box");
+		
+		window.onmousedown = function(e){
+			var x = e.clientX;
+			var y = e.clientY;
+			
+			box.style.left = x-box.offsetWidth/2 + "px";
+			box.style.top = y-box.offsetHeight/2 + "px";
+			
+		}
+		
+		
+	</script>
+</html>
